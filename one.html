@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating element</title>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+</body>
+
+
+<script>
+    function generateDiv(text) {
+        const div = document.createElement('div');
+        div.className = 'mainDiv';
+        div.id = Math.round(Math.random() * 10 + 1);
+        div.setAttribute("title", "generated title");
+        div.style.backgroundColor = "red";
+        div.style.padding = "15px";
+        // div.innerText = "hello world"
+        const addText = document.createTextNode(text);
+        div.appendChild(addText);
+        document.body.appendChild(div);
+        console.log(div);
+    }
+
+    generateDiv("umar");
+</script>
+
+</html>
