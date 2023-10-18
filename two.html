@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+
+<script>
+    // adding another list item in ul
+    const addLang = (langName) => {
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`;   // it will traverse whole tree
+        document.querySelector('.language').appendChild(li);
+    }
+    addLang("phyton");
+    addLang("typescript");
+    addLang("Bootstrap");
+
+
+    // same method with optimize approach
+    const optimizeFuncAddLang = (langName) => {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+    }
+    optimizeFuncAddLang("Java");
+
+
+
+    // ---- edit last 
+    const editlast = (langtext) => {
+        const editlastLang = document.querySelector('li:last-child')
+        // console.log(editlastLang);
+        // editlastLang.innerHTML = "React";    // not a optimize way
+        // editlastLang.appendChild(document.createTextNode("react")) this is new react next to prev text
+        const newLi = document.createElement('li')
+        newLi.textContent = langtext;
+        editlastLang.replaceWith(newLi);
+    }
+    editlast("React JS")
+
+
+
+    // edit
+    const editBootstrapToTailwind = (langtext) => {
+        const editbootstrap = document.querySelector('li:nth-child(4)')
+        // console.log(editbootstrap.innerHTML);
+        // const newLi = document.createElement('li');
+        // newLi.textContent = langtext;
+        // editbootstrap.replaceWith(newLi);
+        editbootstrap.outerHTML = `<li>${langtext}</li>` //another way to edit
+    }
+    editBootstrapToTailwind("tailwind css")
+
+
+    // remove 
+    const deleteLang = document.querySelector('li:nth-child(2)')
+    console.log(deleteLang.innerHTML);
+    deleteLang.remove();
+
+</script>
+
+</html>
